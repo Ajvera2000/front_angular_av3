@@ -1,11 +1,32 @@
 <div class="card">
     <h1>Categoría</h1>
-    
+
+    <p-table [value]="categorias" [tableStyle]="{ 'min-width': '50rem' }">
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>DETALLE</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-categoria>
+            <tr>
+                <td>{{ categoria.id }}</td>
+                <td>{{ categoria.nombre }}</td>
+                <td>{{ categoria.detalle }}</td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+
     <ul>
-        @for (cat of categorias; track $index){
-            <li> {{cat.nombre}} - {{cat.detalle}} </li>
+        @for (cat of categorias; track $index) {
+            <li>{{ cat.nombre }} - {{ cat.detalle }}</li>
         }
     </ul>
+
     <table border="1">
         <thead>
             <tr>
@@ -14,14 +35,14 @@
                 <th>Detalle</th>
             </tr>
         </thead>
-        <body>
-            @for (cat of categorias; track $index){
+        <tbody>
+            @for (cat of categorias; track $index) {
                 <tr>
-                    <td>{{cat.id}} </td>
-                    <td>{{cat.nombre}} </td>
-                    <td>{{cat.detalle}} </td>
+                    <td>{{ cat.id }}</td>
+                    <td>{{ cat.nombre }}</td>
+                    <td>{{ cat.detalle }}</td>
                 </tr>
             }
-        </body>
+        </tbody>
     </table>
 </div>
