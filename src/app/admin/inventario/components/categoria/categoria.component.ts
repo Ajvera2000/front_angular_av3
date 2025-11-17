@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CategoriaService } from '../../services/categoria.service';
+import { FormGroup, FormControl }  from '@angular/forms';
 
 interface Categoria {
   id?: number;
@@ -18,6 +19,10 @@ export class CategoriaComponent implements OnInit {
 
   categorias: Categoria[] = [];
   visible: boolean=false
+  categoriaForm= new FormGroup({
+    nombre: new FormControl(''),
+    detalle: new FormControl('')
+  });
 
   ngOnInit(): void {
     this.getCategorias();
@@ -40,7 +45,7 @@ export class CategoriaComponent implements OnInit {
   }
 
   guardarCategoria(){
-    
+
   }
 
 }
