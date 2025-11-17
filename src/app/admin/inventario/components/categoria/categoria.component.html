@@ -1,7 +1,24 @@
 <div class="card">
     <h1>Categoría</h1>
 
-    <p-table [value]="categorias" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-button (click)="mostrarDialog()" label="Show" />
+
+    <p-dialog
+        header="Header"
+        [(visible)]="visible"
+        [modal]="true"
+        [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+        [style]="{ width: '50vw' }"
+        [draggable]="false"
+        [resizable]="false">
+
+        <p>Lorem ipsum dolor sit amet...</p>
+
+    </p-dialog>
+
+    <p-table 
+        [value]="categorias" 
+        [tableStyle]="{ 'min-width': '50rem' }">
 
         <ng-template pTemplate="header">
             <tr>

@@ -17,6 +17,7 @@ export class CategoriaComponent implements OnInit {
   private categoriaService = inject(CategoriaService);
 
   categorias: Categoria[] = [];
+  visible: boolean=false
 
   ngOnInit(): void {
     this.getCategorias();
@@ -31,6 +32,11 @@ export class CategoriaComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  mostrarDialog(){
+    this.visible=true
+
   }
 
 }
