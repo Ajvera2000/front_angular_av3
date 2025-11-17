@@ -1,11 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CategoriaService } from '../../services/categoria.service';
 
-
-interface categoria{
-  id?: number,
+interface Categoria {
+  id?: number;
   nombre: string;
-  detalle?: string
+  detalle?: string;
 }
 
 @Component({
@@ -15,16 +14,23 @@ interface categoria{
 })
 export class CategoriaComponent implements OnInit {
 
-  private categoriaService = inject(CategoriaService)
+  private categoriaService = inject(CategoriaService);
 
-  categorias: categoria[]=[]
+  categorias: Categoria[] = [];
 
   ngOnInit(): void {
-      this.getCategorias()
+    this.getCategorias();
   }
 
-  getCategorias(){
-    
+  getCategorias() {
+    this.categoriaService.funListar().subscribe(
+      (res: any) => {
+        this.categorias = res;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
 }
