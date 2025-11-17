@@ -39,4 +39,8 @@ export class CategoriaComponent implements OnInit {
 
   }
 
+  guardarCategoria(){
+    
+  }
+
 }
