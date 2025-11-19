@@ -6,7 +6,7 @@ import { error } from 'console';
 interface Categoria {
   id?: number;
   nombre: string;
-  detalle?: string;
+  detalle: string;
 }
 
 @Component({
@@ -55,6 +55,15 @@ export class CategoriaComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  editarCategoria(cat:Categoria){
+    this.visible=true
+    this.categoriaForm.setValue({nombre: cat.nombre , detalle: cat.detalle})
+  }
+
+  eliminarCategoria(cat:Categoria){
+
   }
 
 }
