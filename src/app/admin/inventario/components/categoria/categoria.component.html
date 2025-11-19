@@ -4,17 +4,19 @@
     <p-button (click)="mostrarDialog()" label="Nueva Categoría" />
 
     <p-dialog header="Header" [(visible)]="visible" [modal]="true" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false" class="p-fluid">
-        <div class="field">
+
+        <form [formGroup]="categoriaForm">
+            <div class="field">
             <label for="name">Nombre</label>
-            <input type="text" pInputText id="name" required autofocus />
+            <input type="text" pInputText id="name" required autofocus formControlName="nombre" />
             <small class="ng-dirty ng-invalid">El Campo Nombre es Obligatorio</small>
         </div>
 
         <div class="field">
             <label for="det">Detalle</label>
-            <input type="text" pInputText id="der" required />
+            <input type="text" pInputText id="det" required formControlName="detalle" />
         </div>
-
+         </form>
         <ng-template pTemplate="footer">
             <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="visible=false"></button>
             <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text" (click)="guardarCategoria()"></button>

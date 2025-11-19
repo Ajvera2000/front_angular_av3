@@ -7,6 +7,7 @@ import { TableModule } from 'primeng/table';
 import { DialogModule} from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { InputTextModule } from 'primeng/inputtext';
     TableModule,
     DialogModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    ReactiveFormsModule
 
   ]
 })

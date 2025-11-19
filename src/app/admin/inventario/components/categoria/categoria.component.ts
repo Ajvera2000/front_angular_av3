@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CategoriaService } from '../../services/categoria.service';
 import { FormGroup, FormControl }  from '@angular/forms';
+import { error } from 'console';
 
 interface Categoria {
   id?: number;
@@ -45,7 +46,15 @@ export class CategoriaComponent implements OnInit {
   }
 
   guardarCategoria(){
-
+    this.categoriaService.funGuardar(this.categoriaForm.value).subscribe(
+      (res:any)=>{
+        this.visible=false;
+        this.getCategorias();
+      },
+      (error:any)=>{
+        console.log(error);
+      }
+    )
   }
 
 }
